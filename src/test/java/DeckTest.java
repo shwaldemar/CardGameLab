@@ -24,4 +24,10 @@ public class DeckTest {
         deck.addCard(card);
         assertEquals(1, deck.cardCount());
     }
+
+    @Test
+    public void standard52Has52() {
+        deck.standard52();
+        assertEquals(52, deck.cardCount());
+    }
 }
