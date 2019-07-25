@@ -1,7 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.SQLOutput;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class DeckTest {
 
@@ -14,20 +17,27 @@ public class DeckTest {
         card = new Card(SuitType.SPADES, RankType.FIVE);
     }
 
-    @Test
-    public void deckStartsEmpty() {
-        assertEquals(0, deck.cardCount());
-    }
+//    @Test
+//    public void deckStartsEmpty() {
+//        assertEquals(0, deck.cardCount());
+//    }
 
-    @Test
-    public void canAddCard() {
-        deck.addCard(card);
-        assertEquals(1, deck.cardCount());
-    }
+//    @Test
+//    public void canAddCard() {
+//        deck.addCard(card);
+//        assertEquals(1, deck.cardCount());
+//    }
 
     @Test
     public void standard52Has52() {
-        deck.standard52();
         assertEquals(52, deck.cardCount());
     }
+
+    @Test
+    public void canDealCard() {
+        Card card = deck.dealCard();
+        assertEquals(51, deck.cardCount());
+        assertNotNull(card);
+    }
+
 }
